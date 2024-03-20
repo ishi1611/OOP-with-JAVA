@@ -1,0 +1,258 @@
+class Book {
+
+    String title;
+    String author;
+    String publisher;
+    String ISBN;
+    int year;
+    double price;
+    int quantity;
+
+    public Book() {
+    }
+
+    public Book(String title, String author, String publisher, String ISBN, int year, double price, int quantity) {
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.ISBN = ISBN;
+        this.year = year;
+        this.price = price;
+        this.quantity = quantity;
+
+    }
+
+    public String getTitle() {
+        return title;
+
+    }
+
+    public String setTitle(String title) {
+        return this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String setAuthor(String author) {
+        return this.author = author;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public String setPublisher(String publisher) {
+        return this.publisher = publisher;
+    }
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public String setISBN(String ISBN) {
+        return this.ISBN = ISBN;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int setYear(int year) {
+        return this.year = year;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double setPrice(double price) {
+        return this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int setQuantity(int quantity) {
+        return this.quantity = quantity;
+    }
+}
+
+public class BookTest {
+    public static void main(String[] args) {
+        Book b = new Book();
+        b.setTitle("The Bell Jar");
+        b.setAuthor("Sylvia Plath");
+        b.setPublisher("Pharos Books");
+        b.setISBN("3434552123");
+        b.setYear(1963);
+        b.setPrice(225);
+        b.setQuantity(20);
+
+        System.out.println("Name of the book : " + b.getTitle());
+        System.out.println("Written By : " + b.getAuthor());
+        System.out.println("Published By : " + b.getPublisher());
+        System.out.println("ISBN : " + b.getISBN());
+        System.out.println("Year" + b.getYear());
+        System.out.println("Price : " + b.getPrice());
+        System.out.println("Quantity : " + b.getQuantity());
+
+    }
+
+}
+------------------------------------------------------------------------------------------------------
+
+package BMICalculator;
+import java.util.*;
+class BMICalculator {
+    double height;
+    double weight; 
+    public BMICalculator(double height, double weight) {
+        this.height = height;
+        this.weight = weight;
+    }
+    public double getHeight() {
+        return height;
+    }
+    public double getWeight() {
+        return weight;
+    }
+    public double calculateBMI() {
+        return weight / (height * height);
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        try (Scanner sc = new Scanner(System.in)) {
+			System.out.print("Enter your height in mtrs: ");
+			double height = sc.nextDouble();
+			System.out.print("Enter your weight in kgs: ");
+			double weight = sc.nextDouble();
+			BMICalculator bmiCalculator = new BMICalculator(height, weight);
+			double bmi = bmiCalculator.calculateBMI();
+			System.out.println("Your BMI is: " + bmi);
+		}
+    }
+}
+----------------------------------------------------------------------------------------------------------
+
+package calculation;
+
+import java.util.Scanner;
+public class ElectricityBill {
+	String customerName;
+	int unitConsumed;
+	double billAmount;
+	public void ElectricityBill(String customerName, int unitConsumed, double billAmount) {
+		this.customerName = customerName;
+		this.unitConsumed = unitConsumed;
+	}
+	public String getcustomerName() {
+        return customerName;
+    }
+    public String setcustomerName(String customerName) {
+        return this.customerName = customerName;
+    }
+    public int getunitConsumed() {
+        return  unitConsumed;
+    }
+    public int setunitConsumed(int unitConsumed) {
+        return this.unitConsumed = unitConsumed;
+    }
+    
+    public double getBillAmount() {
+		return billAmount;
+	}
+    public double setBillAmount() {
+		return this.billAmount = billAmount;
+    }
+	public double calculateBillAmount(){
+		
+		if(unitConsumed <= 100) {
+			billAmount = unitConsumed*5;	
+		}
+		
+		else if(unitConsumed <= 200) {
+			billAmount = (unitConsumed*7)+(100*5);	
+		}
+		else {
+			billAmount = (unitConsumed - 300)*10;
+		}
+		return 0;	
+	}				
+}		
+class Bill{
+	public static void main(String[] args) {
+			Scanner sc = new Scanner(System.in); {
+				System.out.print("Enter Customer's Name: ");
+				String customerName = sc.nextLine();
+				System.out.print("Enter Units Consumed: ");
+				int unitConsumed = sc.nextInt();	
+			ElectricityBill bill = new ElectricityBill();
+			bill.calculateBillAmount();
+			 System.out.println("Bill Amount : " + bill.getBillAmount());
+		}
+	}
+}
+
+--------------------------------------------------------------------------------------------------------
+
+package cdac;
+
+import java.util.Scanner;
+class CreditScore{
+	private int creditHistory;
+	private double creditUtilization;
+	private boolean paymentHistory;
+	
+	public CreditScore(int creditHistory, double creditUtilization, boolean paymentHistory){
+		this.creditHistory=creditHistory;
+		this.creditUtilization=creditUtilization;
+		this.paymentHistory=paymentHistory;
+	}
+
+	public int getCreditHistory() {
+		return creditHistory;
+	}
+
+	public double getCreditUtilization() {
+		return creditUtilization;
+	}
+
+	public boolean isPaymentHistory() {
+		return paymentHistory;
+	}
+
+	int calculateCreditScore()
+	{
+		if (paymentHistory)
+		{
+		return ((creditHistory * 15) + (int)(creditUtilization * 30) + 55);
+		}
+		
+		else
+		{
+		return ((creditHistory * 15) + (int)(creditUtilization * 30) + 35);
+		}
+		
+	}
+}
+class Score {
+	public static void main(String[] args) {
+		
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter credit history: ");
+		int creditHistory=sc.nextInt();
+		System.out.println("Enter credit utilization:");
+		double creditUtilisation=sc.nextDouble();
+		System.out.println("Is payment history is good or not? (true/false) :");
+		boolean paymentHistory=sc.nextBoolean();
+		CreditScore score= new CreditScore(creditHistory, creditUtilisation, paymentHistory);
+		score.isPaymentHistory();
+		System.out.println("Credit Score is : " +score.calculateCreditScore());
+		sc.close();
+	}
+}
+------------------------------------------------------------------------------------------------------------------
